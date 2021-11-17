@@ -2,13 +2,7 @@ import os
 from inputStringHandler import createInputStrings
 from basicStringAligner import alignStrings
 from advancedStringAligner import alignStringsAdvanced
-
-# Input file
-inputFile = "input.txt"
-
-# Output file
-outputFile = "output.txt"
-
+from consts import inputFile, outputFile
 # Create the input strings according to definition
 inputStringA, inputStringB = createInputStrings(os.path.join(os.getcwd(),inputFile))
 
