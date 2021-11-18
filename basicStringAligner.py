@@ -1,5 +1,5 @@
 from consts import acgt_index, alpha, delta
-
+import psutil
 
 def alignStrings(stringA, stringB):
     alignedStringA = ""
@@ -7,6 +7,8 @@ def alignStrings(stringA, stringB):
 
     lenA = len(stringA) + 1
     lenB = len(stringB) + 1
+
+    memoryBefore = psutil.virtual_memory()[3]
 
     # Constructing dp table and filling it
     dp = []
@@ -29,7 +31,7 @@ def alignStrings(stringA, stringB):
             cost_y_not = dp[i][j - 1] + delta
             dp[i][j] = min(cost_x_not, min(cost_y_not, cost_x_y))
 
-    print(dp)
+    #print(dp)
     # Top down pass to get the aligned strings
     i = lenB - 1
     j = lenA - 1
@@ -49,9 +51,10 @@ def alignStrings(stringA, stringB):
                 alignedStringB = "_" + alignedStringB
                 j = j - 1
 
+    memoryAfter = psutil.virtual_memory()[3]
     print(alignedStringA)
     print(alignedStringB)
-    return alignedStringA, alignedStringB
+    return alignedStringA, alignedStringB, memoryAfter-memoryBefore
 
 # alignStrings('GTGCATCAGCATGC', 'ACGCTGCACAGC') -> 15, mismatch for GA
 # alignStrings('CTGCATCAGCATGC', 'ACGCTGCACAGC') -> 16, add gap for CA
