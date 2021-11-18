@@ -1,5 +1,6 @@
+import sys
 # Input file
-inputFile = "input.txt"
+inputFile = sys.argv[1]
 
 # Output file
 outputFile = "output.txt"

@@ -1,27 +1,28 @@
 import os
-import time
+import timeit
 from inputStringHandler import createInputStrings
 from basicStringAligner import alignStrings
 from advancedStringAligner import alignStringsAdvanced
 from consts import inputFile, outputFile
 # Create the input strings according to definition
+timeStart = timeit.default_timer()
 inputStringA, inputStringB = createInputStrings(os.path.join(os.getcwd(),inputFile))
 
 # Align the two strings using basic DP algorithm
-timeBasicBefore = time.time()
+timeBasicBefore = timeit.default_timer()
 basicAlignedA, basicAlignedB, memoryTakenBasic = alignStrings(inputStringA, inputStringB)
-timeBasicAfter = time.time()
+timeBasicAfter = timeit.default_timer()
 timeTakenBasic = timeBasicAfter - timeBasicBefore
 
 # Align the two strings using memory-efficient DP algorithm
-timeBasicBefore = time.time()
+timeAdvancedBefore = timeit.default_timer()
 memoryTakenAdvanced = 0
 advancedAlignedA, advancedAlignedB = alignStringsAdvanced(inputStringA, inputStringB)
-timeBasicAfter = time.time()
-timeTakenAdvanced = timeBasicAfter - timeBasicBefore
+timeAdvancedAfter = timeit.default_timer()
+timeTakenAdvanced = timeAdvancedAfter - timeAdvancedBefore
 
 # Write ouptut and details to file
-timeTotal = timeTakenBasic + timeTakenAdvanced
+timeTotal = timeAdvancedAfter - timeStart
 memoryTotal = memoryTakenBasic + memoryTakenAdvanced
 
 if(len(basicAlignedA)>100):
