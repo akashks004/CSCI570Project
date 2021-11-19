@@ -37,9 +37,9 @@ def createInputStrings(inputFilePath):
 
     #closing the input file
     f.close()
-    print(baseStringA)
-    print(indexesA)
-    print(baseStringB)
-    print(indexesB)
+    # print(baseStringA)
+    # print(indexesA)
+    # print(baseStringB)
+    # print(indexesB)
 
     return baseStringA, baseStringB
