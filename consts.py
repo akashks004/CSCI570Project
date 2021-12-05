@@ -1,9 +1,6 @@
-import sys
-# Input file
-inputFile = sys.argv[1]
-
 # Output file
-outputFile = "output.txt"
+outputFile1 = "output1.txt"
+outputFile2 = "output2.txt"
 
 # Mismatch cost table - alpha
 acgt_index = {'A': 0, 'C': 1, 'G': 2, 'T': 3}

@@ -1,6 +1,8 @@
 import os
+import psutil
 
 def createInputStrings(inputFilePath):
+    memoryBefore = psutil.virtual_memory()[3]
     #Variables
     baseStringA = ""
     baseStringB = ""
@@ -41,5 +43,5 @@ def createInputStrings(inputFilePath):
     # print(indexesA)
     # print(baseStringB)
     # print(indexesB)
-
-    return baseStringA, baseStringB
+    memory = psutil.virtual_memory()[3] - memoryBefore
+    return baseStringA, baseStringB, memory
