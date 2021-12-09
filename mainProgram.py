@@ -54,37 +54,38 @@ def basicProcess():
 
     #inputStringA = "AGTACGCA"
     #inputStringB = "TATGC"
-    print("String created")
-    print("A:"+str(len(inputStringA))+", B:"+str(len(inputStringB)))
+    #print("String created")
+    #print("A:"+str(len(inputStringA))+", B:"+str(len(inputStringB)))
 
     # Align the two strings using basic DP algorithm
     timeBasicBefore = timeit.default_timer()
     basicAlignedA, basicAlignedB, memoryTakenBasic = alignStrings(inputStringA, inputStringB)
     timeBasicAfter = timeit.default_timer()
     timeTakenBasic = timeBasicAfter - timeBasicBefore
-    print("Basic DP done")
+    #print("Basic DP done")
 
-    print("Final output")
+    #print("Final output")
     with open(os.path.join(os.getcwd(),outputFile1), 'w') as output:
         if len(basicAlignedA) <= 100:
-            print("Aligned string A: "+ basicAlignedA)
+            #print("Aligned string A: "+ basicAlignedA)
             output.write(basicAlignedA+"\n")
         else:
-            print("Aligned string A: "+basicAlignedA[0:50]+" "+basicAlignedA[-50:])
+            #print("Aligned string A: "+basicAlignedA[0:50]+" "+basicAlignedA[-50:])
             output.write(basicAlignedA[0:50]+" "+basicAlignedA[-50:]+"\n")
 
         if len(basicAlignedB) <= 100:
-            print("Aligned string B: "+basicAlignedB)
+            #print("Aligned string B: "+basicAlignedB)
             output.write(basicAlignedB+"\n")
         else:
-            print("Aligned string B: "+basicAlignedB[0:50]+" "+basicAlignedB[-50:])
+            #print("Aligned string B: "+basicAlignedB[0:50]+" "+basicAlignedB[-50:])
             output.write(basicAlignedB[0:50]+" "+basicAlignedB[-50:]+"\n")
 
-        print("Score: "+str(calcScore(basicAlignedA, basicAlignedB)))
+        #print("Score: "+str(calcScore(basicAlignedA, basicAlignedB)))
         output.write("Optimal Alignment Score: "+str(calcScore(basicAlignedA, basicAlignedB))+"\n")
         
         basicTime = timeTakenBasic
-        print("Total time taken: "+str(timeTakenBasic)+" (s)")
+        print(basicTime)
+        #print("Total time taken: "+str(timeTakenBasic)+" (s)")
         output.write("Total time taken: "+str(timeTakenBasic)+" (s) \n")
 
 def advancedProcess():
@@ -97,37 +98,38 @@ def advancedProcess():
 
     #inputStringA = "AGTACGCA"
     #inputStringB = "TATGC"
-    print("String created")
-    print("A:"+str(len(inputStringA))+", B:"+str(len(inputStringB)))
+    #print("String created")
+    #print("A:"+str(len(inputStringA))+", B:"+str(len(inputStringB)))
 
     # Align the two strings using memory-efficient DP algorithm
     timeAdvancedBefore = timeit.default_timer()
     advancedAlignedA, advancedAlignedB, memoryTakenAdvanced = alignStringsAdvanced(inputStringA, inputStringB)
     timeAdvancedAfter = timeit.default_timer()
     timeTakenAdvanced = timeAdvancedAfter - timeAdvancedBefore
-    print("Advanced DP done")
+    #print("Advanced DP done")
 
-    print("Final output")
+    #print("Final output")
     with open(os.path.join(os.getcwd(),outputFile2), 'w') as output:
         if len(advancedAlignedA) <= 100:
-            print("Aligned string A: "+ advancedAlignedA)
+            #print("Aligned string A: "+ advancedAlignedA)
             output.write(advancedAlignedA+"\n")
         else:
-            print("Aligned string A: "+advancedAlignedA[0:50]+" "+advancedAlignedA[-50:])
+            #print("Aligned string A: "+advancedAlignedA[0:50]+" "+advancedAlignedA[-50:])
             output.write(advancedAlignedA[0:50]+" "+advancedAlignedA[-50:]+"\n")
 
         if len(advancedAlignedB) <= 100:
-            print("Aligned string B: "+advancedAlignedB)
+            #print("Aligned string B: "+advancedAlignedB)
             output.write(advancedAlignedB+"\n")
         else:
-            print("Aligned string B: "+advancedAlignedB[0:50]+" "+advancedAlignedB[-50:])
+            #print("Aligned string B: "+advancedAlignedB[0:50]+" "+advancedAlignedB[-50:])
             output.write(advancedAlignedB[0:50]+" "+advancedAlignedB[-50:]+"\n")
         
-        print("Score: "+str(calcScore(advancedAlignedA, advancedAlignedB)))
+        #print("Score: "+str(calcScore(advancedAlignedA, advancedAlignedB)))
         output.write("Optimal Alignment Score: "+str(calcScore(advancedAlignedA, advancedAlignedB))+"\n")
 
         advancedTime = timeTakenAdvanced
-        print("Total time taken: "+str(timeTakenAdvanced)+" (s)")
+        print(advancedTime)
+        #print("Total time taken: "+str(timeTakenAdvanced)+" (s)")
         output.write("Total time taken: "+str(timeTakenAdvanced)+" (s) \n")
 
 def main():
@@ -142,7 +144,7 @@ def main():
             max_usage = mem_thread.result()
 
         basicMemory = max_usage+stringsMemory
-        print(f"Peak memory usage Basic : {basicMemory}")
+        #print(f"Peak memory usage Basic : {basicMemory}")
         with open(os.path.join(os.getcwd(),outputFile1), 'a') as output:
             output.write("Total memory used: "+str(basicMemory)+" (KBs) \n")
 
@@ -157,11 +159,12 @@ def main():
             max_usage = mem_thread.result()
 
         advancedMemory = max_usage+stringsMemory
-        print(f"Peak memory usage Advanced: {advancedMemory}")
+        #print(f"Peak memory usage Advanced: {advancedMemory}")
         with open(os.path.join(os.getcwd(),outputFile2), 'a') as output:
             output.write("Total memory used: "+str(advancedMemory)+" (KBs) \n")
     
-    return [basicTime, advancedTime, basicMemory, advancedMemory]
+    print(basicMemory)
+    print(advancedMemory)
 
 if __name__ == "__main__":
     main()
