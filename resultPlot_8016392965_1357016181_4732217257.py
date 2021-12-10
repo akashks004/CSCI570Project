@@ -12,7 +12,7 @@ m_n = []
 
 for i in range(1, 65):
     print(i)
-    lines, err = subprocess.Popen(["mainProgram.py", "TestCases\input"+str(i)+".txt"], stdout = subprocess.PIPE,shell=True).communicate()
+    lines, err = subprocess.Popen(["mainProgram_8016392965_1357016181_4732217257.py", "TestCases\input"+str(i)+".txt"], stdout = subprocess.PIPE,shell=True).communicate()
     lines = lines.decode("utf-8")
     lines = lines.splitlines()
     basicCpuTime.append(float(lines[0]))
@@ -29,7 +29,10 @@ for i in range(1, 65):
 #X-axis points
 for i in range(1,9):
     for j in range(1,9):
-        m_n.append((2**i)+(2**j))
+        m_n.append((2**i)*4+(2**j)*4)
+
+#for i in range(1,9):
+#    m_n.append((2**i)*4+(2**i)*4)
 
 #print(m_n)
 
@@ -54,7 +57,8 @@ plt.xlabel("m + n")
 plt.ylabel("CPU Time")
 plt.legend(['Basic', 'Advanced'])
 plt.title("CPU Time vs problem size")
-plt.savefig('CPUvsPsize.png')
+#plt.show()
+plt.savefig('CPUPlot.png')
 
 plt.plot(smn, smoothBasicMemory, color = 'tab:blue')
 plt.plot(smn, smoothAdvancedMemory, color = 'tab:orange')
@@ -62,4 +66,6 @@ plt.xlabel("m + n")
 plt.ylabel("Memory")
 plt.legend(['Basic', 'Advanced'])
 plt.title("Memory vs problem size")
-plt.savefig('MemoryvsPsize.png')
+plt.ylim(bottom=20000)
+#plt.show()
+plt.savefig('MemoryPlot.png')

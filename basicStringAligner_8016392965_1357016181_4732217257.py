@@ -1,4 +1,4 @@
-from consts import acgt_index, alpha, delta
+from consts_8016392965_1357016181_4732217257 import acgt_index, alpha, delta
 import psutil
 
 def alignStrings(stringA, stringB):

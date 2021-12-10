@@ -2,10 +2,10 @@ import os
 import sys
 import timeit
 import psutil
-from inputStringHandler import createInputStrings
-from basicStringAligner import alignStrings
-from advancedStringAligner import alignStringsAdvanced
-from consts import outputFile1, outputFile2, delta, alpha, acgt_index
+from inputStringHandler_8016392965_1357016181_4732217257 import createInputStrings
+from basicStringAligner_8016392965_1357016181_4732217257 import alignStrings
+from advancedStringAligner_8016392965_1357016181_4732217257 import alignStringsAdvanced
+from consts_8016392965_1357016181_4732217257 import outputFile1, outputFile2, delta, alpha, acgt_index
 from concurrent.futures import ThreadPoolExecutor
 #import resource
 stringsMemory = 0

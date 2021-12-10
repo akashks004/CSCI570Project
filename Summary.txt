@@ -1,0 +1,28 @@
+Students in the group
+Akash Koratagere Shivaramu - 8016392965
+Sriharsha Sreenatha - 1357016181
+Madhura Muralidhar - 4732217257
+
+Summaries
+
+Insights from CPUTime vs Problem Size Plot
+
+Basic Algorithm is more faster than Memory Efficient Algorithm since it can backtrack on the memoization table efficiently rather than having to do computation to find the efficient alignment like Memory Efficient Algorithm.
+
+Insights from Memory vs Problem Size Plot
+
+Basic Algorithm uses a lot of memory when compared to Memory Efficient Algorithm since it requires a memoization table of size m*n but the Memory Efficient Algorithm just requires a table of size 2*max(m,n) which is very less than that required by Basic Algorithm which is why the memory requirement grows exponentially as the problem size grows as compared to linear growth in Memory Efficient Algorithm.
+
+Insights from Both Graphs
+
+Basic Algorithm is much faster than Memory Efficient Algorithm
+Memory Efficient Algorithm uses a lot less memory compared to Basic Algorithm when the problem size is large.
+
+
+Contributions of each group member
+
+Akash - Coding, testing, plot generation and report
+
+Sriharsha - Coding, testing, plot generation and report
+
+Madhura - Coding, testing, plot generation and report

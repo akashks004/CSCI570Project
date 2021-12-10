@@ -1,6 +1,7 @@
 # Output file
 outputFile1 = "output1.txt"
 outputFile2 = "output2.txt"
+outputFile = "output.txt"
 
 # Mismatch cost table - alpha
 acgt_index = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
