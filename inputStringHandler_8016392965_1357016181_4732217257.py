@@ -39,9 +39,5 @@ def createInputStrings(inputFilePath):
 
     #closing the input file
     f.close()
-    # print(baseStringA)
-    # print(indexesA)
-    # print(baseStringB)
-    # print(indexesB)
     memory = psutil.virtual_memory()[3] - memoryBefore
     return baseStringA, baseStringB, memory
